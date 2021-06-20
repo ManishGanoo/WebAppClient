@@ -1,0 +1,74 @@
+﻿@model WebAppClient.Models.PostsModel
+
+@{
+    ViewBag.Title = "Filter";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Filter</title>
+</head>
+
+<body>
+
+    <form action="" method="post">
+        <table class="table">
+            <tr>
+                <th>
+                    <label>Post Id</label>
+                </th>
+                <th>
+                    <input type="text" name="FilterPostId" placeholder="Post Id" />
+                </th>
+                <th>
+                    <input type="submit" value="Filter" />
+                </th>
+            </tr>
+
+        </table>
+
+    </form>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body)
+            </th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Body)
+            </td>
+        </tr>
+
+
+    </table>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<WebAppClient.Models.PostsModel>
+
+@{
+    ViewBag.Title = "Filter";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Filter</title>
+</head>
+
+<body>
+
+    <form action="" method="post">
+        <table class="table">
+            <tr>
+                <th>
+                    <label>Post Body</label>
+                </th>
+                <th>
+                    <input type="text" name="FilterBody" placeholder="Post Body" />
+                </th>
+                <th>
+                    <input type="submit" value="Filter" />
+                </th>
+            </tr>
+
+        </table>
+
+    </form>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Body)
+                </td>
+            </tr>
+        }
+
+
+    </table>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

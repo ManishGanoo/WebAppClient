@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebAppClient.Models.PostsModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Create New", "CreatePost")
+        </th>
+        <th>
+            @Html.ActionLink("Export to Csv", "ExportPostsListToCSV")
+        </th>
+        <th>
+            @Html.ActionLink("Filter by Id", "Filter")
+        </th>
+        <th>
+            @Html.ActionLink("Filter by Body", "FilterBody")
+        </th>
+
+    </tr>
+
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Body)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Body)
+            </td>
+            <td>
+                @Html.ActionLink("Comments", "Comments", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeletePosts", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
